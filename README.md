@@ -1,36 +1,122 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🌐 FairShare
 
-## Getting Started
+**FairShare** is a smart, modern, and intuitive expense-splitting web application. Whether you're sharing costs with roommates, splitting trip expenses, or managing group payments, FairShare AI simplifies the process with real-time updates and a clean user experience.
 
-First, run the development server:
+---
+
+## 🚀 Features
+
+### 👥 Group Expenses
+
+Create dedicated groups for roommates, trips, or events to keep expenses organized and transparent.
+
+### 🧍 Individual Expenses
+
+Easily add personal expenses outside of groups to maintain a full picture of your finances.
+
+### 🧠 Smart Settlements
+
+Our algorithm minimizes the number of payments when settling up.
+
+### 📊 Expense Analytics
+
+Visualize spending patterns, track shared costs over time, and gain financial insights.
+
+### 🔔 Payment Reminders
+
+Receive automated reminders for pending debts and get suggestions for repayment timing.
+
+### ➗ Multiple Split Types
+
+Split expenses equally, by percentage, or with exact custom amounts — flexible for any situation.
+
+### 🔄 Real‑Time Updates
+
+Experience instant syncing of expenses and repayments as soon as group members make changes.
+
+---
+
+## ⚙️ How It Works
+
+Follow these simple steps to manage your shared expenses effortlessly:
+
+1. **Create or Join a Group**  
+   Start a group for roommates, trips, or events. Invite your friends to join.
+
+2. **Add Expenses**  
+   Log who paid, the amount, and how the expense should be divided.
+
+3. **Settle Up**  
+   Instantly see who owes what and record repayments to keep balances clear.
+
+---
+
+## 🧱 Tech Stack
+
+| Layer        | Technology Used                                                                                               |
+| ------------ | ------------------------------------------------------------------------------------------------------------- |
+| **Frontend** | [Next.js 15](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), [Shadcn](https://ui.shadcn.com/) |
+| **Backend**  | [Convex](https://www.convex.dev/)                                                                             |
+
+---
+
+## 📦 Getting Started
+
+Follow these steps to set up and run the project locally:
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Asionsolver/fairshare-ai.git
+
+cd fairshare-ai
+```
+
+### 2. Install Dependencies
+
+Make sure you have Node.js (v18+) and npm or yarn installed.
+
+```bash
+npm install
+# or
+yarn install
+```
+
+### 3. Set Up Environment Variables
+
+Create a .env.local file in the root directory:
+
+```
+touch .env.local
+```
+
+#### Add the following variables:
+
+```
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your-clerk-publishable-key
+CLERK_SECRET_KEY=your-clerk-secret-key
+
+NEXT_PUBLIC_CONVEX_URL=your-convex-url
+CONVEX_DEPLOY_KEY=your-convex-deploy-key
+
+```
+
+### 4. Start the Development Server
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📄 License
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+This project is licensed under the **MIT License**.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🤝 Contributions
 
-To learn more about Next.js, take a look at the following resources:
+Have ideas or found a bug? Contributions are welcome! Open an issue or submit a pull request.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> 💡 FairShare: **Smarter sharing. Fairer spending.**
