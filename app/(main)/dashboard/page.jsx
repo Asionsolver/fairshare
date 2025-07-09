@@ -27,12 +27,12 @@ const DashboardPage = () => {
             {
                 isLoading ?
                     (<div className="w-full py-12 flex justify-center">
-                        <BarLoader width={"100%"} color="#4F46E5" />
+                        <BarLoader width={"100%"} color="#c96442" />
                     </div>)
                     :
                     (
                         <>
-                            <div className="flex justify-between items-center">
+                            <div className="flex justify-between items-center mx-4">
                                 <h1 className="text-5xl gradient-title">Dashboard</h1>
                                 <Button asChild>
                                     <Link href="/expenses/new">
@@ -41,7 +41,7 @@ const DashboardPage = () => {
                                     </Link>
                                 </Button>
                             </div>
-                            <div className="grid grid-cols-1  lg:grid-cols-3 gap-4 mt-8">
+                            <div className="grid grid-cols-1  lg:grid-cols-3 gap-4 mt-8 mx-4">
                                 <Card >
                                     <CardHeader className="pb-2">
                                         <CardTitle className={"text-sm font-medium text-muted-foreground"}>Total Balance</CardTitle>
@@ -117,7 +117,7 @@ const DashboardPage = () => {
                                 </Card>
                             </div>
 
-                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6  mx-4">
                                 {/* Left Column */}
 
                                 <div className="lg:col-span-2 space-y-6">

@@ -35,7 +35,7 @@ const GroupPage = () => {
     if (isLoading) {
         return (
             <div className='container mx-auto py-12'>
-                <BarLoader width={"100%"} color='#36d7b7' />
+                <BarLoader width={"100%"} color='#c96442' />
             </div>
         )
     }
@@ -43,7 +43,7 @@ const GroupPage = () => {
 
     return (
         <div className='container mx-auto py-6 max-w-4xl'>
-            <div className='mb-6'>
+            <div className='mb-6  mx-4'>
                 <Button size={"sm"} variant='outline' onClick={() => router.back()} className={"mb-4"}>
                     <ArrowLeft className='mr-2 h-4 w-4' />
                     Back
@@ -77,7 +77,7 @@ const GroupPage = () => {
                 </div>
             </div>
 
-            <div className='grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6 mx-4'>
                 <div className='lg:col-span-2'>
                     <Card>
                         <CardHeader className={"pb-2"}>
@@ -104,7 +104,7 @@ const GroupPage = () => {
                 </div>
             </div>
 
-            <Tabs defaultValue="expenses" className="space-y-4" value={activeTab} onValueChange={setActiveTab}>
+            <Tabs defaultValue="expenses" className="space-y-4 mx-4" value={activeTab} onValueChange={setActiveTab}>
                 <TabsList className={"grid w-full grid-cols-2 bg-muted text-muted-foreground"}>
                     <TabsTrigger value="expenses">Expenses({expenses.length})</TabsTrigger>
                     <TabsTrigger value="settlements">Settlements({settlements.length})</TabsTrigger>

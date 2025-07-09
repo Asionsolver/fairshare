@@ -45,14 +45,14 @@ const SettlementPage = () => {
             <Button
                 variant="outline"
                 size="sm"
-                className="mb-4"
+                className="mb-4 mx-4"
                 onClick={() => router.back()}
             >
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back
             </Button>
 
-            <div className="mb-6">
+            <div className="mb-6 mx-4">
                 <h1 className="text-5xl gradient-title">Record a settlement</h1>
                 <p className="text-muted-foreground mt-1">
                     {type === "user"
@@ -61,7 +61,7 @@ const SettlementPage = () => {
                 </p>
             </div>
 
-            <Card>
+            <Card className="mx-4">
                 <CardHeader>
                     <div className="flex items-center gap-3">
                         {type === "user" ? (

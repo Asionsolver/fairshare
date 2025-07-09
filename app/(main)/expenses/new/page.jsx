@@ -9,13 +9,13 @@ const NewExpensePage = () => {
 
     const router = useRouter();
     return (
-        <div className='container max-w-3xl mx-auto py-6'>
-            <div className='mb-6'>
+        <div className='container max-w-3xl mx-auto py-6 '>
+            <div className='mb-6 mx-4'>
                 <h1 className='text-5xl gradient-title'>Add a new expense</h1>
                 <p className='text-lg text-muted-foreground mt-2'>Record a new expense to split others</p>
             </div>
 
-            <Card>
+            <Card className="mx-4">
                 <CardContent>
                     <Tabs defaultValue="individual" className="pb-3">
                         <TabsList className={"grid w-full grid-cols-2"}>

@@ -11,6 +11,7 @@ import Link from "next/link"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { CreateGroupModal } from "./_components/CreateGroupModal"
 import { useRouter, useSearchParams } from "next/navigation"
+import ContactPageLoader from "@/components/loader/ContactPageLoader"
 
 
 
@@ -34,8 +35,10 @@ const Contacts = () => {
 
 
     if (isLoading) {
-        return <BarLoader width={"100%"} color="#36d7b7" />
+        return <ContactPageLoader />
     }
+
+
 
     const { users, groups } = data || { users: [], groups: [] }
     return (

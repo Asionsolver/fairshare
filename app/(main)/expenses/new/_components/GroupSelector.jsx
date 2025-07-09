@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 import { api } from "@/convex/_generated/api";
-import { BarLoader } from "react-spinners";
+import { BarLoader, BeatLoader } from "react-spinners";
 import { Users } from "lucide-react";
 import {
     Select,
@@ -35,7 +35,7 @@ const GroupSelector = ({ onChange }) => {
     };
 
     if (isLoading) {
-        return <BarLoader width={"100%"} color="#36d7b7" />;
+        return <BeatLoader width={"100%"} color="#c96442" />;
     }
 
     if (!data?.groups || data.groups.length === 0) {
