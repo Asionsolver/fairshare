@@ -14,6 +14,7 @@ import ExpenseList from '@/components/common/expense-list'
 import SettlementsList from '@/components/common/settlements-list'
 import GroupBalances from '@/components/common/group-balances'
 import GroupMembers from '@/components/common/group-members'
+import GroupPageLoader from '@/components/loader/GroupPageLoader'
 
 
 const GroupPage = () => {
@@ -35,7 +36,7 @@ const GroupPage = () => {
     if (isLoading) {
         return (
             <div className='container mx-auto py-12'>
-                <BarLoader width={"100%"} color='#c96442' />
+                <GroupPageLoader />
             </div>
         )
     }

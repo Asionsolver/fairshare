@@ -1,6 +1,4 @@
 "use client"
-
-import { BarLoader } from "react-spinners"
 import { api } from "../../../convex/_generated/api"
 import { useConvexQuery } from "../../../hooks/useConvexQuery"
 import { Button } from "../../../components/ui/button"
@@ -10,6 +8,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../../../c
 import ExpenseSummary from "./_components/ExpenseSummary"
 import BalanceSummary from "./_components/BalanceSummary"
 import GroupList from "./_components/GroupList"
+import DashboardLoader from "@/components/loader/DashboardLoader"
 
 
 const DashboardPage = () => {
@@ -27,7 +26,7 @@ const DashboardPage = () => {
             {
                 isLoading ?
                     (<div className="w-full py-12 flex justify-center">
-                        <BarLoader width={"100%"} color="#c96442" />
+                        <DashboardLoader />
                     </div>)
                     :
                     (

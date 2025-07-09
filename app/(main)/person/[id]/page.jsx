@@ -12,6 +12,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import ExpenseList from '@/components/common/expense-list'
 import SettlementsList from '@/components/common/settlements-list'
+import PersonPageLoader from '@/components/loader/PersonPageLoader'
 
 const PersonPage = () => {
     const params = useParams()
@@ -23,7 +24,7 @@ const PersonPage = () => {
     if (isLoading) {
         return (
             <div className='container mx-auto py-12'>
-                <BarLoader width={"100%"} color='#c96442' />
+                <PersonPageLoader />
             </div>
         )
     }
