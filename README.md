@@ -14,7 +14,7 @@
 | **🧍 Individual Expenses**  | Log one-on-one expenses to maintain a complete financial picture.                    |
 | **🧠 Smart Settlements**    | Our algorithm minimizes the number of payments required when settling up.            |
 | **📊 Expense Analytics**    | Visualize spending patterns and track shared costs to gain financial insights.       |
-| **🔔 Payment Reminders**    | Receive automated reminders for pending debts.                                       |
+| **🔔 Payment Reminders**    | Receive automated reminders for pending debts.(working on this feature)              |
 | **➗ Multiple Split Types** | Split costs equally, by percentage, or with exact amounts—flexible for any scenario. |
 | **🔄 Real-Time Updates**    | Experience instant syncing of all financial activities across the group.             |
 
