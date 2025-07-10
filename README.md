@@ -27,7 +27,7 @@ This project includes comprehensive documentation to provide a clear understandi
 - **User Guides:** Simple, step-by-step instructions for end-users.
 - **Feature Documentation:** In-depth technical breakdowns for developers or reviewers.
 
-> 👉 **[Explore the Full Documentation Hub](./docs/README.md)** to learn more about how each feature works.
+> 👉 **[Explore the Full Documentation Hub](./doc/README.md)** to learn more about how each feature works.
 
 ---
 
