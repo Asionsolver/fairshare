@@ -4,71 +4,58 @@
 
 ---
 
-## 🚀 Features
+**[🚀 View Live Demo](https://fairshare-seven.vercel.app/)** · **[📚 Read the Full Documentation](./doc/README.md)** · **[🐞 Report a Bug](https://github.com/Asionsolver/fairshare-ai/issues)**
 
-### 👥 Group Expenses
+## ✨ Core Features
 
-Create dedicated groups for roommates, trips, or events to keep expenses organized and transparent.
-
-### 🧍 Individual Expenses
-
-Easily add personal expenses outside of groups to maintain a full picture of your finances.
-
-### 🧠 Smart Settlements
-
-Our algorithm minimizes the number of payments when settling up.
-
-### 📊 Expense Analytics
-
-Visualize spending patterns, track shared costs over time, and gain financial insights.
-
-### 🔔 Payment Reminders
-
-Receive automated reminders for pending debts and get suggestions for repayment timing.
-
-### ➗ Multiple Split Types
-
-Split expenses equally, by percentage, or with exact custom amounts — flexible for any situation.
-
-### 🔄 Real‑Time Updates
-
-Experience instant syncing of expenses and repayments as soon as group members make changes.
+| Feature                     | Description                                                                          |
+| --------------------------- | ------------------------------------------------------------------------------------ |
+| **👥 Group Expenses**       | Create dedicated groups for any event to keep expenses organized and transparent.    |
+| **🧍 Individual Expenses**  | Log one-on-one expenses to maintain a complete financial picture.                    |
+| **🧠 Smart Settlements**    | Our algorithm minimizes the number of payments required when settling up.            |
+| **📊 Expense Analytics**    | Visualize spending patterns and track shared costs to gain financial insights.       |
+| **🔔 Payment Reminders**    | Receive automated reminders for pending debts.                                       |
+| **➗ Multiple Split Types** | Split costs equally, by percentage, or with exact amounts—flexible for any scenario. |
+| **🔄 Real-Time Updates**    | Experience instant syncing of all financial activities across the group.             |
 
 ---
 
-## ⚙️ How It Works
+## 📚 Documentation
 
-Follow these simple steps to manage your shared expenses effortlessly:
+This project includes comprehensive documentation to provide a clear understanding of its architecture and features. The documentation is organized into two main sections for different audiences:
 
-1. **Create or Join a Group**  
-   Start a group for roommates, trips, or events. Invite your friends to join.
+- **User Guides:** Simple, step-by-step instructions for end-users.
+- **Feature Documentation:** In-depth technical breakdowns for developers or reviewers.
 
-2. **Add Expenses**  
-   Log who paid, the amount, and how the expense should be divided.
-
-3. **Settle Up**  
-   Instantly see who owes what and record repayments to keep balances clear.
+> 👉 **[Explore the Full Documentation Hub](./docs/README.md)** to learn more about how each feature works.
 
 ---
 
 ## 🧱 Tech Stack
 
-| Layer        | Technology Used                                                                                               |
-| ------------ | ------------------------------------------------------------------------------------------------------------- |
-| **Frontend** | [Next.js 15](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), [Shadcn](https://ui.shadcn.com/) |
-| **Backend**  | [Convex](https://www.convex.dev/)                                                                             |
+This project leverages a modern, full-stack serverless architecture:
+
+| Layer        | Technology Used                                                                                                  |
+| ------------ | ---------------------------------------------------------------------------------------------------------------- |
+| **Frontend** | [Next.js 15](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), [Shadcn UI](https://ui.shadcn.com/) |
+| **Backend**  | [Convex](https://www.convex.dev/) (Full-stack TypeScript Development Platform)                                   |
+| **Auth**     | [Clerk](https://clerk.com/)                                                                                      |
 
 ---
 
-## 📦 Getting Started
+## 🚀 Getting Started Locally
 
-Follow these steps to set up and run the project locally:
+Follow these steps to set up and run the project on your local machine.
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- `npm` or `yarn`
 
 ### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/Asionsolver/fairshare-ai.git
-
 cd fairshare-ai
 ```
 
@@ -93,6 +80,7 @@ touch .env.local
 #### Add the following variables:
 
 ```
+# .env.local
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your-clerk-publishable-key
 CLERK_SECRET_KEY=your-clerk-secret-key
 
@@ -115,8 +103,25 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 🤝 Contributions
+## 🤝 How to Contribute
 
 Have ideas or found a bug? Contributions are welcome! Open an issue or submit a pull request.
+
+### Steps to Contribute
+
+1. **Fork the Repository:** Click the "Fork" button in the top right corner of the repo page.
+2. **Create your Feature Branch:**
+   ```bash
+   git checkout -b feature/AmazingFeature
+   ```
+3. **Commit your Changes:**
+   ```bash
+   git commit -m 'Add some AmazingFeature'
+   ```
+4. **Push to the Branch:**
+   ```bash
+   git push origin feature/AmazingFeature
+   ```
+5. **Open a Pull Request:** Go to the original repository and create a pull request from your branch.
 
 > 💡 FairShare: **Smarter sharing. Fairer spending.**
