@@ -1,29 +1,29 @@
 import React from "react";
 
 const ContactPageLoader = () => {
+    const SkeletonBlock = ({ width = "full", height = "h-16" }) => (
+        <div className={`${height} bg-input dark:bg-secondary-foreground rounded w-${width}`}></div>
+    );
+
     return (
-        <div class="container mx-auto px-4 py-6 animate-pulse">
-            <div class="flex justify-between items-center mb-6">
-                <div class="h-12 bg-secondary-foreground rounded w-1/4"></div>
+        <div className="container mx-auto px-4 py-6 animate-pulse">
+            <div className="flex justify-between items-center mb-6">
+                <SkeletonBlock width="1/4" height="h-12" />
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                    <div class="h-6 bg-secondary-foreground rounded w-1/4"></div>
-
-                    <div class="flex flex-col gap-4 mt-6">
-                        <div class="h-16 bg-secondary-foreground rounded"></div>
-
+                    <SkeletonBlock width="1/4" height="h-6" />
+                    <div className="flex flex-col gap-4 mt-6">
+                        <SkeletonBlock />
                     </div>
                 </div>
                 <div>
-                    <div class="h-6 bg-secondary-foreground rounded w-1/4"></div>
-
-                    <div class="flex flex-col gap-4 mt-6">
-                        <div class="h-16 bg-secondary-foreground rounded"></div>
-                        <div class="h-16 bg-secondary-foreground rounded"></div>
-                        <div class="h-16 bg-secondary-foreground rounded"></div>
-                        <div class="h-16 bg-secondary-foreground rounded"></div>
+                    <SkeletonBlock width="1/4" height="h-6" />
+                    <div className="flex flex-col gap-4 mt-6">
+                        {[...Array(4)].map((_, index) => (
+                            <SkeletonBlock key={index} />
+                        ))}
                     </div>
                 </div>
             </div>

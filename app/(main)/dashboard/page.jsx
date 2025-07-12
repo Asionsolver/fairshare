@@ -129,7 +129,7 @@ const DashboardPage = () => {
                                 {/* Right Column */}
                                 <div className="space-y-6">
                                     {/* Balance Summary */}
-                                    <Card >
+                                    <Card className="bg-border/20">
                                         <CardHeader className="pb-2 flex justify-between items-center">
                                             <CardTitle >Balance Details</CardTitle>
                                             <Button asChild variant={"link"} className="text-sm">
@@ -146,8 +146,8 @@ const DashboardPage = () => {
                                     </Card>
                                     {/* Group */}
 
-                                    <Card >
-                                        <CardHeader className="pb-2 flex justify-between items-center">
+                                    <Card className="bg-border/20">
+                                        <CardHeader className="pb-2 flex justify-between items-center ">
                                             <CardTitle >Your Groups</CardTitle>
                                             <Button asChild variant={"link"} className="text-sm">
                                                 <Link href="/contacts" >

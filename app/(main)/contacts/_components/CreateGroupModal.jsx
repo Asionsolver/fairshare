@@ -124,7 +124,7 @@ export function CreateGroupModal({ isOpen, onClose, onSuccess }) {
                         <Label htmlFor="members">Members</Label>
                         <div className="flex flex-wrap gap-2 mb-2">
                             {currentUser && (
-                                <Badge className="px-3 py-1 bg-secondary/10">
+                                <Badge className="px-3 py-1 bg-secondary text-destructive dark:text-foreground dark:bg-secondary-foreground">
                                     <Avatar className="h-5 w-5">
                                         <AvatarImage src={currentUser.imageUrl} />
                                         <AvatarFallback>{currentUser.name.charAt(0) || "?"}</AvatarFallback>
@@ -138,7 +138,7 @@ export function CreateGroupModal({ isOpen, onClose, onSuccess }) {
                                 <Badge
                                     key={member.id}
 
-                                    className="px-3 py-1 flex bg-secondary/10"
+                                    className="px-3 py-1 flex bg-secondary text-destructive dark:text-foreground dark:bg-secondary-foreground"
                                 >
                                     <Avatar className="h-5 w-5">
                                         <AvatarImage src={member.imageUrl} />

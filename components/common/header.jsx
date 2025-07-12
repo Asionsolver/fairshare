@@ -41,7 +41,7 @@ const Header = () => {
                     <Authenticated>
                         <div className='flex items-center space-x-4'>
                             <Link href="/dashboard" >
-                                <Button variant="ghost" className='hidden text-xl md:flex items-center hover:border hover:border-primary hover:text-primary transition-colors duration-200'>
+                                <Button variant="ghost" className='hidden text-xl md:flex items-center cursor-pointer hover:border hover:border-primary hover:text-primary transition-colors duration-200'>
                                     <LayoutDashboard className='h-5! w-5!' />
                                     <span className=''>Dashboard</span>
                                 </Button>
