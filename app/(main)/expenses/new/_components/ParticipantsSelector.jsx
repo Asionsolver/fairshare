@@ -63,7 +63,7 @@ const ParticipantsSelector = ({ participants, onParticipantsChange }) => {
                     <Badge
                         key={participant.id}
                         variant="secondary"
-                        className="flex items-center gap-2 px-3 py-2"
+                        className="flex items-center gap-2 px-3 py-2 bg-secondary text-destructive dark:text-foreground dark:bg-secondary-foreground"
                     >
                         <Avatar className="h-5 w-5">
                             <AvatarImage src={participant.imageUrl} />
@@ -80,7 +80,7 @@ const ParticipantsSelector = ({ participants, onParticipantsChange }) => {
                             <button
                                 type="button"
                                 onClick={() => removeParticipant(participant.id)}
-                                className="ml-1 text-muted-foreground hover:text-foreground"
+                                className="ml-1 text-muted-foreground hover:text-foreground cursor-pointer"
                             >
                                 <X className="h-3 w-3" />
                             </button>
@@ -124,15 +124,16 @@ const ParticipantsSelector = ({ participants, onParticipantsChange }) => {
                                             </p>
                                         )}
                                     </CommandEmpty>
-                                    <CommandGroup heading="Users">
+                                    <CommandGroup className="">
                                         {searchResults?.map((user) => (
                                             <CommandItem
                                                 key={user.id}
                                                 value={user.name + user.email}
                                                 onSelect={() => addParticipant(user)}
+
                                             >
                                                 <div className="flex items-center gap-2">
-                                                    <Avatar className="h-6 w-6">
+                                                    <Avatar className="h-6 w-6 ">
                                                         <AvatarImage src={user.imageUrl} />
                                                         <AvatarFallback>
                                                             {user.name?.charAt(0) || "?"}

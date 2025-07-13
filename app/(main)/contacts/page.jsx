@@ -68,7 +68,7 @@ const Contacts = () => {
                             <div className="flex flex-col gap-4">
                                 {users.map((user) => (
                                     <Link key={user.id} href={`/person/${user.id}`}>
-                                        <Card>
+                                        <Card className="hover:bg-border/40  transition-colors duration-200">
                                             <CardContent>
                                                 <div className="flex justify-between items-center ">
                                                     <div className="flex  items-center gap-3">
@@ -111,7 +111,7 @@ const Contacts = () => {
                             <div className="flex flex-col gap-4">
                                 {groups.map((group) => (
                                     <Link key={group.id} href={`/groups/${group.id}`}>
-                                        <Card>
+                                        <Card className="hover:bg-border/40  transition-colors duration-200">
                                             <CardContent>
                                                 <div className="flex justify-between items-center ">
                                                     <div className="flex  items-center gap-3">
