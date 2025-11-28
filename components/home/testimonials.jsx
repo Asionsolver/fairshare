@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Badge } from "../ui/badge";
 import { Card, CardContent } from "../ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
@@ -24,9 +24,9 @@ const itemVariants = {
 const TestimonialsSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const sliderRef = useRef(null);
-  const cardsPerView = 3;
+  const [cardsPerView, setCardsPerView] = useState(3);
 
-  const maxIndex = TESTIMONIALS.length - cardsPerView;
+  const maxIndex = Math.max(TESTIMONIALS.length - cardsPerView, 0);
 
   const next = () =>
     setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
@@ -38,6 +38,30 @@ const TestimonialsSlider = () => {
     if (info.offset.x > threshold) prev();
     else if (info.offset.x < -threshold) next();
   };
+  // Add auto-slide effect
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768)
+        setCardsPerView(1); // small
+      else if (window.innerWidth < 1024)
+        setCardsPerView(2); // medium
+      else setCardsPerView(3); // large
+    };
+
+    handleResize(); // set initial value
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Add auto-slide effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      next();
+    }, 5000); // change 5000 to however many milliseconds you want
+
+    return () => clearInterval(interval); // cleanup on unmount
+  }, [currentIndex]); // you can also leave the dependency array empty and just use a ref to avoid repeated intervals
 
   return (
     <section id="testimonials" className="py-20 bg-foreground/5">
@@ -67,12 +91,12 @@ const TestimonialsSlider = () => {
           className="relative max-w-5xl mx-auto overflow-hidden"
         >
           {/* Navigation Controls */}
-          <div className=" items-center justify-end mb-4 gap-1 mx-5 hidden  md:flex">
+          <div className=" items-center justify-end mb-4 gap-1  hidden md:flex lg:mx-6">
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={prev}
-              className="p-0.5 rounded-md bg-primary/20 hover:bg-primary/30 transition-colors"
+              className="p-0.5 rounded-md bg-primary/20 hover:bg-primary/30 transition-colors cursor-pointer"
               aria-label="Previous testimonials"
             >
               <ChevronLeft className="w-6 h-6 text-primary" />
@@ -82,7 +106,7 @@ const TestimonialsSlider = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={next}
-              className="p-0.5 rounded-md bg-primary/20 hover:bg-primary/30 transition-colors"
+              className="p-0.5 rounded-md bg-primary/20 hover:bg-primary/30 transition-colors cursor-pointer"
               aria-label="Next testimonials"
             >
               <ChevronRight className="w-6 h-6 text-primary" />
@@ -90,7 +114,7 @@ const TestimonialsSlider = () => {
           </div>
           <motion.div
             ref={sliderRef}
-            className="flex gap-6 cursor-grab  md:ml-0"
+            className="flex md:gap-6 cursor-grab "
             animate={{ x: -currentIndex * (100 / cardsPerView) + "%" }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             drag="x"
@@ -104,7 +128,7 @@ const TestimonialsSlider = () => {
             {TESTIMONIALS.map(({ name, quote, role, image }) => (
               <div
                 key={name}
-                className="min-w-full md:min-w-[340px] lg:min-w-[318px] flex-1 flex-shrink-0"
+                className="min-w-full md:min-w-[21.25rem] lg:min-w-[19.875rem] flex-1 flex-shrink-0 "
               >
                 <Card className="flex flex-col items-center p-6 shadow-lg h-full">
                   <CardContent className="p-6 space-y-4">
@@ -134,17 +158,29 @@ const TestimonialsSlider = () => {
           transition={{ delay: 0.2 }}
         >
           {Array.from({ length: TESTIMONIALS.length - cardsPerView + 1 }).map(
-            (_, idx) => (
-              <motion.button
-                key={idx}
-                onClick={() => setCurrentIndex(idx)}
-                className={`h-2 rounded-full transition-all ${
-                  idx === currentIndex ? "bg-primary w-6" : "bg-primary/30 w-2"
-                }`}
-                whileHover={{ scale: 1.2 }}
-                aria-label={`Go to slide ${idx + 1}`}
-              />
-            )
+            (_, idx) => {
+              const isActive = idx === currentIndex;
+
+              return (
+                <motion.button
+                  key={idx}
+                  onClick={() => setCurrentIndex(idx)}
+                  className="h-2 rounded-full cursor-pointer bg-primary/30 overflow-hidden"
+                  aria-label={`Go to slide ${idx + 1}`}
+                  style={{ width: isActive ? "24px" : "8px" }} // base width
+                  whileHover={{ scale: 1.2 }}
+                >
+                  {isActive && (
+                    <motion.div
+                      className="h-full bg-primary"
+                      initial={{ width: "0%" }}
+                      animate={{ width: "100%" }}
+                      transition={{ duration: 5, ease: "linear" }} // match 5000ms
+                    />
+                  )}
+                </motion.button>
+              );
+            }
           )}
         </motion.div>
       </motion.div>
