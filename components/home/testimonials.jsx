@@ -5,8 +5,21 @@ import { Badge } from "../ui/badge";
 import { Card, CardContent } from "../ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { TESTIMONIALS } from "@/lib/landing";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+const containerVariants = {
+  hidden: { opacity: 0, y: 12 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { staggerChildren: 0.08, delayChildren: 0.08 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 18 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
 
 const TestimonialsSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -28,18 +41,33 @@ const TestimonialsSlider = () => {
 
   return (
     <section id="testimonials" className="py-20 bg-foreground/5">
-      <div className="container mx-auto px-4 md:px-6 text-center space-y-6">
-        <Badge className="bg-primary/20 text-primary text-sm">
-          Testimonials
-        </Badge>
-        <h1 className="text-3xl mt-2 mx-auto md:text-4xl gradient-title">
+      <motion.div
+        className="container mx-auto px-4 md:px-6 text-center space-y-6"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.25 }}
+      >
+        <motion.div variants={itemVariants}>
+          <Badge className="bg-primary/20 text-primary text-sm">
+            Testimonials
+          </Badge>
+        </motion.div>
+
+        <motion.h1
+          variants={itemVariants}
+          className="text-3xl mt-2 mx-auto md:text-4xl gradient-title"
+        >
           What our users are saying
-        </h1>
+        </motion.h1>
 
         {/* Slider Track */}
-        <div className="relative max-w-5xl mx-auto overflow-hidden">
+        <motion.div
+          variants={itemVariants}
+          className="relative max-w-5xl mx-auto overflow-hidden"
+        >
           {/* Navigation Controls */}
-          <div className="flex items-center justify-end mb-4 gap-1 mx-5">
+          <div className=" items-center justify-end mb-4 gap-1 mx-5 hidden  md:flex">
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
@@ -62,7 +90,7 @@ const TestimonialsSlider = () => {
           </div>
           <motion.div
             ref={sliderRef}
-            className="flex gap-6 cursor-grab"
+            className="flex gap-6 cursor-grab  md:ml-0"
             animate={{ x: -currentIndex * (100 / cardsPerView) + "%" }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             drag="x"
@@ -74,7 +102,10 @@ const TestimonialsSlider = () => {
             onDragEnd={handleDragEnd}
           >
             {TESTIMONIALS.map(({ name, quote, role, image }) => (
-              <div key={name} className="min-w-[318px] flex-1 flex-shrink-0">
+              <div
+                key={name}
+                className="min-w-full md:min-w-[340px] lg:min-w-[318px] flex-1 flex-shrink-0"
+              >
                 <Card className="flex flex-col items-center p-6 shadow-lg h-full">
                   <CardContent className="p-6 space-y-4">
                     <p className="text-sm">{quote}</p>
@@ -93,10 +124,15 @@ const TestimonialsSlider = () => {
               </div>
             ))}
           </motion.div>
-        </div>
+        </motion.div>
 
         {/* Dots Indicator */}
-        <div className="flex gap-2 justify-center mt-4">
+        <motion.div
+          className="flex gap-2 justify-center mt-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
           {Array.from({ length: TESTIMONIALS.length - cardsPerView + 1 }).map(
             (_, idx) => (
               <motion.button
@@ -110,8 +146,8 @@ const TestimonialsSlider = () => {
               />
             )
           )}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
